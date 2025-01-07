@@ -1,0 +1,36 @@
+Feature: AdventOfCode1 functionality
+
+  Scenario: Load arrays from a valid file
+    Given a file with the following contents:
+      """
+      1 2
+      3 4
+      5 6
+      """
+    When I load arrays from the file
+    Then the first array should be [1, 3, 5]
+    And the second array should be [2, 4, 6]
+
+  Scenario: Load arrays from a non-existent file
+    Given a non-existent file
+    When I load arrays from the file
+    Then the result should be "Failed"
+
+  Scenario: Load arrays from a file with invalid format
+    Given a file with the following contents:
+      """
+      abc def
+      ghi jkl
+      """
+    When I load arrays from the file
+    Then the result should be "Failed"
+
+  Scenario: Get differences between two arrays
+    Given two arrays: [1, 2, 3] and [4, 5, 6]
+    When I get the differences between the arrays
+    Then the result should be [3, 3, 3]
+
+  Scenario: Count incidences in arrays
+    Given two arrays: [1, 2, 3] and [3, 2, 1, 1]
+    When I count incidences
+    Then the result should be 1
