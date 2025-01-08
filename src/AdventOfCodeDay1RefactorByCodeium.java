@@ -1,4 +1,4 @@
-public class AdventOfCode1 {
+public class AdventOfCodeDay1RefactorByCodeium {
     private static final String FILE_PATH = "src/AOC1input.csv";
 
     public static void main(String[] args) {
